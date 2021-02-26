@@ -160,6 +160,7 @@ def scoring():
             pass
     
     for player in Playerpoint1:
+        print()
         print(player, "has:", Playerpoint2[player], "             with total point:", Playerpoint1[player])
         
     loop = True
