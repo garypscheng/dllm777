@@ -177,7 +177,7 @@ def scoring():
         print(player, "has:", Playerpoint2[player], "             with total point:", Playerpoint1[player])
         time.sleep(0.5)
 
-    print("\n\n)
+    print("\n\n")
     loop = True
     while loop == True:
         ask = input("would you like to start a New Round?").lower()
