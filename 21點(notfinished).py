@@ -1,12 +1,12 @@
 import random                                                                                # 隨機效果
 import time                                                                                  # 計時效果
 import operator
-suit = ["Spade", "Heart", "Club", "Diamond"]                                                    # 花色
-face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]           # 牌面
-facevalue = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10"]*4            # 面值
+suit = ["Spade", "Heart", "Club", "Diamond"]                                                    
+face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]           
+facevalue = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10"]*4         
 cardset = []                                                                                    
 point = dict()
-sum = 0                                                                                      # 計total點數
+sum = 0                                                                                     
 name = input("Hello, What's your name?")
 time.sleep(1)
 
@@ -98,55 +98,41 @@ def scoring():
         print(player, "Hit")
         commoncal()
 
-    Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   for 計分用
-    Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   for 計牌用
+    Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   計點數
+    Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   記牌
     minus = [name, "player 1", "player 2", "player 3", "Banker"]
 
     print("\n\nNew Round\nWith Card Exhibiting")
-    for player in Playerpoint1:                                                              #    明牌
+    for player in Playerpoint1:                                                              
         commoncal()
 
     print("\n\nWith Card Covered")
-    calunknown()                                                                             #    暗牌
+    calunknown()                                                                             
 
     print("\n\n")
-# 1: 玩家決定stand or hit
-     #a) stand: 玩家不抽, 而cpu判定stand or hit  -->single loop
-     #b) hit: 玩家抽和點數<15的玩家一起抽 -->再問(stand or hit) --> hit: 玩家抽和點數<15的玩家一起抽 --->loop: 直到玩家答stand (while)
-
-# 2: CPU決定stand or hit    --> 用while 或者 if xx= True
-     # ai) 當cpu點數>15:決定stand: 其餘<15的決定抽
-     # aii) 當cpu點數<15: 決定hit --> looping aii) until false -->back to ai)
-# 3: 判定階段:
-     # 全部玩家都stand --> if statement
-     # i) if 點數=21 --> direct winner
-     # ii) if 點數>21 --> 該名玩家直接輸, 其餘的最接近而小於21點的為勝
-     # iii) if 點數<21 :最接近而小於21點的玩家為勝
-
-    
     ask = input("stand or hit?")                                 # 分歧: 玩家決定stand or hit
     askk = ask.lower()
     if askk == "stand":                                    # 獨立事件1: 玩家決定stand
         for player in Playerpoint1:
             if player == name:                                               # 玩家 stand
                 exclusion()
-            elif player != name and Playerpoint1[player] > 15:               # 大過15點的電腦玩家: stand
+            elif player != name and Playerpoint1[player] > 15:               # 大過15點電腦: stand
                 exclusion()
-            elif player != name and Playerpoint1[player] < 15:               # 細過15點的電腦玩家: hit
+            elif player != name and Playerpoint1[player] < 15:               # 細過15點電腦: hit
                 hit1()
-                if player != name and Playerpoint1[player] < 15:  # 細過15點的電腦玩家: hit
+                if player != name and Playerpoint1[player] < 15:  
                     hit1()
     elif askk == "hit":                                    # 獨立事件2: 玩家決定hit
         for player in Playerpoint1:
             if player == name:
                 hit2()
-                ask = input("stand or hit?")  # 分歧: 玩家決定stand or hit
+                ask = input("stand or hit?")  
                 askk = ask.lower()
                 if askk == "stand":
                     exclusion()
                 elif askk == "hit":
                     hit2()
-                    ask = input("stand or hit?")  # 分歧: 玩家決定stand or hit
+                    ask = input("stand or hit?")  
                     askk = ask.lower()
                     if askk == "stand":
                         print(player, "has Stand")
