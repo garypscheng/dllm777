@@ -1,6 +1,9 @@
+# 導入模組
 import random                                                                                # 隨機效果
 import time                                                                                  # 計時效果
 import operator
+
+#前設部分
 c = ["Spade", "Heart", "Club", "Diamond"]                                                    # 花色
 v = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]           # 牌面
 n = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10"]*4            # 面值 (確保v, n 既list items 係一樣(之後用黎直接整合))
@@ -9,7 +12,8 @@ point = dict()
 sum = 0                                                                                      # 計total點數
 name = input("Hello, What's your name?")
 time.sleep(1)
-# 一堆definitions                                             
+
+# Function Definitions 部分:                                             
 def CardSet():                                                                               # 生成一副牌                          
     for w in c:
         for p in v:
@@ -96,13 +100,13 @@ def scoring():
     def hit2():
         print(player, "has hit")
         commoncal()
-
-
-    a = 5
+   
     Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   for 計分用
     Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   for 計牌用
-    minus = [name, "player 1", "player 2", "player 3", "Banker"]
-
+    minus = [name, "player 1", "player 2", "player 3", "Banker"]                             #   for 剔除用: 費時不停重覆player 1 has Stand, player 1 has Stand, player 1 has Stand
+    
+    
+    
     print("\n\nNew Round\nWith Card Exhibiting")
     for player in Playerpoint1:                                                              #    明牌
         commoncal()
@@ -127,7 +131,7 @@ def scoring():
     a = -2
     ask = input("stand or hit?")                                 # 分歧: 玩家決定stand or hit
     askk = ask.lower()
-    if askk == "stand":                                    # 獨立事件1: 玩家決定stand
+    if askk == "stand":                                          # 獨立事件1: 玩家決定stand
         for player in Playerpoint1:
             if player == name:                                               # 玩家 stand
                 exclusion()
@@ -137,17 +141,17 @@ def scoring():
                 hit1()
                 if player != name and Playerpoint1[player] < 15:  # 細過15點的電腦玩家: hit
                     hit1()
-    elif askk == "hit":                                    # 獨立事件2: 玩家決定hit
+    elif askk == "hit":                                           # 獨立事件2: 玩家決定hit
         for player in Playerpoint1:
             if player == name:
                 hit2()
-                ask = input("stand or hit?")  # 分歧: 玩家決定stand or hit
+                ask = input("stand or hit?")                      # 分歧: 玩家決定stand or hit
                 askk = ask.lower()
                 if askk == "stand":
                     exclusion()
                 elif askk == "hit":
                     hit2()
-                    ask = input("stand or hit?")  # 分歧: 玩家決定stand or hit
+                    ask = input("stand or hit?")                  # 分歧: 玩家決定stand or hit
                     askk = ask.lower()
                     if askk == "stand":
                         print(player, "has Stand")
@@ -174,7 +178,7 @@ def scoring():
     print(Playerpoint2)
 
 
-
+# Call Functions 
 CardSet()
 PointValue()
 game()
