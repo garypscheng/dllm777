@@ -159,8 +159,6 @@ def scoring():
     for player in Playerpoint1:
         print(player, "has:", Playerpoint2[player], "             with total point:", Playerpoint1[player])
 
-
-
 CardSet()
 PointValue()
 game()
