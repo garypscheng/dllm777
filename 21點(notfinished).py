@@ -104,9 +104,7 @@ def scoring():
     Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   for 計分用
     Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   for 計牌用
     minus = [name, "player 1", "player 2", "player 3", "Banker"]                             #   for 剔除用: 費時不停重覆player 1 has Stand, player 1 has Stand, player 1 has Stand
-    
-    
-    
+        
     print("\n\nNew Round\nWith Card Exhibiting")
     for player in Playerpoint1:                                                              #    明牌
         commoncal()
