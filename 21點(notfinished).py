@@ -1,25 +1,25 @@
 import random                                                                                # 隨機效果
 import time                                                                                  # 計時效果
 import operator
-c = ["Spade", "Heart", "Club", "Diamond"]                                                    # 花色
-v = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]           # 牌面
-n = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10"]*4            # 面值
-card = []                                                                                    # 即將整既牌set
+suit = ["Spade", "Heart", "Club", "Diamond"]                                                    # 花色
+face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]           # 牌面
+facevalue = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10"]*4            # 面值
+cardset = []                                                                                    
 point = dict()
 sum = 0                                                                                      # 計total點數
 name = input("Hello, What's your name?")
 time.sleep(1)
 
 def CardSet():
-    for w in c:
-        for p in v:
-            card.append(w+ " "+p)
+    for w in suit:
+        for p in face:
+            cardset.append(w+ " "+p)
 
 def PointValue():
     keys = range(52)                                                                          # 用range integer化 -> 用作loop用途
-    values = card
+    values = cardset
     for i in keys:
-        point[values[i]] = n[i]
+        point[values[i]] = facevalue[i]
 
 def game():                                                                                   #    Game Intro
     print("Alright,", name, ", you are going to fight with other players and the banker. Bless you!")
@@ -98,8 +98,6 @@ def scoring():
         print(player, "Hit")
         commoncal()
 
-
-    a = 5
     Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   for 計分用
     Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   for 計牌用
     minus = [name, "player 1", "player 2", "player 3", "Banker"]
