@@ -45,6 +45,7 @@ def scoring():
         ptt = pt
         sum = Playerpoint1.get(player) + ptt
         Playerpoint1[player] = sum
+        time.sleep(1)
         print(player, Num, " total point:", sum)
 
     def calunknown():                                                                        #    暗牌部分
@@ -64,13 +65,15 @@ def scoring():
                 sum = Playerpoint1.get(player) + ptt
                 Playerpoint1[player] = sum
                 if player == Player1:
+                    time.sleep(1)
                     print(player, Num, " total point:", sum)
                     continue
+                time.sleep(1)
                 print(player, "Unknown", "total point: Unknown")
-            print(Playerpoint1)
 
     def decisioncal():                                                                  # hit/stand 部分
         draw = random.choice(list(point))
+        time.sleep(1)
         print(player, "has draw", draw)
         Cpt = point.get(draw)
         Num = Playerpoint2.get(player) + " " + draw
@@ -87,14 +90,17 @@ def scoring():
         Playerpoint1[player] = sum
 
     def exclusion():
+        time.sleep(1)
         print(player, "has Stand")
         minus.remove(player)
 
     def hit1():
+        time.sleep(1)
         print(player, "has hit")
         decisioncal()
 
     def hit2():
+        time.sleep(1)
         print(player, "Hit")
         commoncal()
 
