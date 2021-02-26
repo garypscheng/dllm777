@@ -110,9 +110,8 @@ def scoring():
     calunknown()                                                                             
 
     print("\n\n")
-    ask = input("stand or hit?")                                 # 分歧: 玩家決定stand or hit
-    askk = ask.lower()
-    if askk == "stand":                                    # 獨立事件1: 玩家決定stand
+    ask = input("stand or hit?").lower()                                # 分歧: 玩家決定stand or hit
+    if ask == "stand":                                    # 獨立事件1: 玩家決定stand
         for player in Playerpoint1:
             if player == Player1:                                               # 玩家 stand
                 exclusion()
@@ -122,21 +121,19 @@ def scoring():
                 hit1()
                 if player != Player1 and Playerpoint1[player] < 15:  
                     hit1()
-    elif askk == "hit":                                    # 獨立事件2: 玩家決定hit
+    elif ask == "hit":                                    # 獨立事件2: 玩家決定hit
         for player in Playerpoint1:
             if player == Player1:
                 hit2()
-                ask = input("stand or hit?")  
-                askk = ask.lower()
-                if askk == "stand":
+                ask = input("stand or hit?").lower()
+                if ask == "stand":
                     exclusion()
-                elif askk == "hit":
+                elif ask == "hit":
                     hit2()
-                    ask = input("stand or hit?")  
-                    askk = ask.lower()
-                    if askk == "stand":
+                    ask = input("stand or hit?").lower
+                    if ask == "stand":
                         print(player, "has Stand")
-                    elif askk == "hit":
+                    elif ask == "hit":
                         hit2()
             elif player != Player1 and Playerpoint1[player] < 15:
                 hit1()
