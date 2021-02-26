@@ -63,7 +63,7 @@ def scoring():
                 ptt = pt
                 sum = Playerpoint1.get(player) + ptt
                 Playerpoint1[player] = sum
-                if player == name:
+                if player == Player1:
                     print(player, Num, " total point:", sum)
                     continue
                 print(player, "Unknown", "total point: Unknown")
