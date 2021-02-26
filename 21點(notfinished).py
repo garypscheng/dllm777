@@ -10,19 +10,16 @@ sum = 0
 Player1 = input("Hello, What's your name?")
 time.sleep(1)
 
-
 def CardSet():
     for w in suit:
         for p in face:
             cardset.append(w + " " + p)
-
 
 def PointValue():
     keys = range(52)                                                # 用range integer化 -> 用作loop用途
     values = cardset
     for i in keys:
         point[values[i]] = facevalue[i]
-
 
 def game():  # Game Intro
     print("Alright,", Player1, ", you are going to fight with other players and the banker. Bless you!")
@@ -31,7 +28,6 @@ def game():  # Game Intro
     print("Dealer is distributing cards")
     time.sleep(1)
     scoring()
-
 
 def scoring():
     def commoncal():                                   # 亮牌部分
@@ -59,7 +55,6 @@ def scoring():
             elif player != Player1:                                     # cpu玩家hit 牌
                 delay()
                 print(player, "decides to Hit, and receives", draw)
-
 
     def calunknown():                                          # 暗牌部分
         for player in Playerpoint1:
