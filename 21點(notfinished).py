@@ -167,6 +167,8 @@ def scoring():
             scoring()
         elif ask == "no":
             quit()
+        else:
+            print("Sorry, I don't understand. Please try again")
            
 CardSet()
 PointValue()
