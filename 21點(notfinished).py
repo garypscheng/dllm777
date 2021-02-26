@@ -115,20 +115,6 @@ def scoring():
     calunknown()                                                                             #    暗牌
 
     print("\n\n")
-# 1: 玩家決定stand or hit
-     #a) stand: 玩家不抽, 而cpu判定stand or hit  -->single loop
-     #b) hit: 玩家抽和點數<15的玩家一起抽 -->再問(stand or hit) --> hit: 玩家抽和點數<15的玩家一起抽 --->loop: 直到玩家答stand (while)
-
-# 2: CPU決定stand or hit    --> 用while 或者 if xx= True
-     # ai) 當cpu點數>15:決定stand: 其餘<15的決定抽
-     # aii) 當cpu點數<15: 決定hit --> looping aii) until false -->back to ai)
-# 3: 判定階段:
-     # 全部玩家都stand --> if statement
-     # i) if 點數=21 --> direct winner
-     # ii) if 點數>21 --> 該名玩家直接輸, 其餘的最接近而小於21點的為勝
-     # iii) if 點數<21 :最接近而小於21點的玩家為勝
-
-    a = -2
     ask = input("stand or hit?")                                 # 分歧: 玩家決定stand or hit
     askk = ask.lower()
     if askk == "stand":                                          # 獨立事件1: 玩家決定stand
