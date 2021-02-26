@@ -7,7 +7,7 @@ facevalue = ["(1, 11)", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10"
 cardset = []                                                                                    
 point = dict()
 sum = 0                                                                                     
-name = input("Hello, What's your name?")
+Player1 = input("Hello, What's your name?")
 time.sleep(1)
 
 def CardSet():
@@ -22,7 +22,7 @@ def PointValue():
         point[values[i]] = facevalue[i]
 
 def game():                                                                                   #    Game Intro
-    print("Alright,", name, ", you are going to fight with other players and the banker. Bless you!")
+    print("Alright,", Player1, ", you are going to fight with other players and the banker. Bless you!")
     print("The game will start after 3 seconds")
     time.sleep(3)
     print("Dealer is distributing cards to you")
@@ -98,9 +98,9 @@ def scoring():
         print(player, "Hit")
         commoncal()
 
-    Playerpoint1 = {name: 0, "player 1": 0, "player 2": 0, "player 3": 0, "Banker": 0}       #   計點數
-    Playerpoint2 = {name: "", "player 1": "", "player 2": "", "player 3": "", "Banker": ""}  #   記牌
-    minus = [name, "player 1", "player 2", "player 3", "Banker"]
+    Playerpoint1 = {Player1: 0, "player 2": 0, "player 3": 0, "player 4": 0, "Banker": 0}       #   計點數
+    Playerpoint2 = {Player1: "", "player 2": "", "player 3": "", "player 4": "", "Banker": ""}  #   記牌
+    minus = [Player1, "player 2", "player 3", "player 4", "Banker"]
 
     print("\n\nNew Round\nWith Card Exhibiting")
     for player in Playerpoint1:                                                              
@@ -114,17 +114,17 @@ def scoring():
     askk = ask.lower()
     if askk == "stand":                                    # 獨立事件1: 玩家決定stand
         for player in Playerpoint1:
-            if player == name:                                               # 玩家 stand
+            if player == Player1:                                               # 玩家 stand
                 exclusion()
-            elif player != name and Playerpoint1[player] > 15:               # 大過15點電腦: stand
+            elif player != Player1 and Playerpoint1[player] > 15:               # 大過15點電腦: stand
                 exclusion()
-            elif player != name and Playerpoint1[player] < 15:               # 細過15點電腦: hit
+            elif player != Player1 and Playerpoint1[player] < 15:               # 細過15點電腦: hit
                 hit1()
-                if player != name and Playerpoint1[player] < 15:  
+                if player != Player1 and Playerpoint1[player] < 15:  
                     hit1()
     elif askk == "hit":                                    # 獨立事件2: 玩家決定hit
         for player in Playerpoint1:
-            if player == name:
+            if player == Player1:
                 hit2()
                 ask = input("stand or hit?")  
                 askk = ask.lower()
@@ -138,13 +138,13 @@ def scoring():
                         print(player, "has Stand")
                     elif askk == "hit":
                         hit2()
-            elif player != name and Playerpoint1[player] < 15:
+            elif player != Player1 and Playerpoint1[player] < 15:
                 hit1()
-                if player != name and Playerpoint1[player] < 15:
+                if player != Player1 and Playerpoint1[player] < 15:
                     hit1()
-                elif player != name and Playerpoint1[player] > 15:
+                elif player != Player1 and Playerpoint1[player] > 15:
                     exclusion()
-            elif player != name and Playerpoint1[player] > 15:
+            elif player != Player1 and Playerpoint1[player] > 15:
                 exclusion()
 
     for player in Playerpoint1:
