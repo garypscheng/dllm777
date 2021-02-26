@@ -158,9 +158,9 @@ def scoring():
             break
         elif Playerpoint1[player] == 21:              # 呢度我想整 if 無人=21, then winner = 最接近又細過21既數
             pass
-    
+        
+    print("\n\nResult:")
     for player in Playerpoint1:
-        print()
         print(player, "has:", Playerpoint2[player], "             with total point:", Playerpoint1[player])
         
     loop = True
