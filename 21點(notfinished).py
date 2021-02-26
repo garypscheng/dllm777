@@ -158,7 +158,16 @@ def scoring():
     
     for player in Playerpoint1:
         print(player, "has:", Playerpoint2[player], "             with total point:", Playerpoint1[player])
-
+        
+    loop = True
+    while loop == True:
+        ask = input("would you like to start a New Round?").lower()
+        if ask == "yes":
+            loop = False
+            scoring()
+        elif ask == "no":
+            quit()
+           
 CardSet()
 PointValue()
 game()
